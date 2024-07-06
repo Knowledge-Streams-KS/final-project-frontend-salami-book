@@ -1,56 +1,44 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import signupSchema from "../validations/FormValidation.js";
+import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
+import { loginSchema } from "../validations/FormValidation.js";
 
-const SignUp = () => {
-  const { signup } = useContext(AuthContext);
+const Login = () => {
+  const { login } = useContext(AuthContext);
+
+  const initialValues = {
+    email: "",
+    password: "",
+  };
 
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
-      const { name, email, password } = values;
-      console.log("Form values:", values); // Log form values for debugging
-      const response = await signup(name, email, password);
-
-      if (response && response.status === 201) {
-        console.log("Form submitted successfully:", name, email, password);
-      } else if (response && response.status === 400) {
-        setFieldError("email", "User with this email already exists");
+      const response = await login(values.email, values.password);
+      if (!response) {
+        setFieldError("general", "Invalid email or password");
       }
+      setSubmitting(false);
     } catch (error) {
-      console.error("Error signing up:", error);
-    } finally {
+      console.error("Error logging in:", error);
+      setFieldError("general", "Invalid email or password");
       setSubmitting(false);
     }
   };
 
   return (
     <Formik
-      initialValues={{ name: "", email: "", password: "" }}
-      validationSchema={signupSchema}
+      initialValues={initialValues}
+      validationSchema={loginSchema}
       onSubmit={handleSubmit}
     >
       <div className="flex min-h-screen items-center justify-center bg-gray-100">
         <div className="w-full max-w-md rounded bg-white p-6 shadow-md">
           <h2 className="mb-6 text-center text-3xl font-semibold text-green-800">
-            Sign Up
+            Log In
           </h2>
+
           <Form>
-            <div className="mb-4">
-              <label className="block text-gray-700">Name</label>
-              <Field
-                type="text"
-                name="name"
-                className="w-full rounded-md border px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                required
-              />
-              <ErrorMessage
-                name="name"
-                component="p"
-                className="mt-2 text-red-600"
-              />
-            </div>
             <div className="mb-4">
               <label className="block text-gray-700">Email Address</label>
               <Field
@@ -84,12 +72,13 @@ const SignUp = () => {
               type="submit"
               className="w-full rounded-md bg-green-800 py-2 text-white transition duration-300 hover:bg-green-600"
             >
-              Sign Up
+              Log In
             </button>
           </Form>
+
           <div className="mt-4 text-center">
-            <Link to="/login" className="text-green-800">
-              Already have an account? Sign In
+            <Link to="/signup" className="text-green-800">
+              Do not have an account? Sign up
             </Link>
           </div>
         </div>
@@ -98,4 +87,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;

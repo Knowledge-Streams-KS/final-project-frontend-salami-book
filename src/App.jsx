@@ -9,11 +9,12 @@ import Fields from "./pages/Fields";
 import Footer from "./pages/Footer";
 import AboutUs from "./pages/AboutUs";
 import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
 
 function App() {
   return (
     <>
-      <div className="bg-[#0e0f0f] text-white font-barlow-condensed ">
+      <div className="font-barlow-condensed bg-[#0e0f0f] text-white">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -24,6 +25,7 @@ function App() {
           <Route path="fields" element={<Fields />} />
           <Route path="aboutus" element={<AboutUs />} />
           <Route path="signup" element={<SignUp />} />
+          <Route path="login" element={<Login />} />
         </Routes>
         <Footer />
       </div>

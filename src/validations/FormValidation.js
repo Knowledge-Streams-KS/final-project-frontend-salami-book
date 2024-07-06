@@ -1,6 +1,6 @@
 import * as yup from "yup";
 import axiosInstance from "../axios/axios.js"
-const validationSchema = yup.object({
+const signupSchema = yup.object({
     name: yup.string().required("name is required"),
     email: yup
         .string()
@@ -32,4 +32,33 @@ const validationSchema = yup.object({
             "Password must contain at least one special character"
         ),
 });
-export default validationSchema;
+
+
+
+
+const loginSchema = yup.object({
+    email: yup
+        .string()
+        .required("Email is required")
+        .email("Please enter a valid email")
+        .test("checkEmailExists", "Email does not exist", async function (value) {
+            try {
+                const response = await axiosInstance.get(`http://localhost:3000/users`);
+                const users = response.data.data;
+
+                // Check if any user already has this email
+                const emailExists = users.some(user => user.email === value);
+
+                // Return true if email exists, false if it doesn't
+                return emailExists;
+            } catch (error) {
+                console.error("Error checking email:", error);
+                return false;
+            }
+        }),
+    password: yup.string().required("Password is required"),
+});
+
+export { loginSchema };
+
+export default signupSchema;
