@@ -3,10 +3,12 @@ import React from "react";
 const AboutUs = () => {
   return (
     <>
-      <div className="pt-8 flex flex-col items-center space-y-10">
-        <div className="text-7xl pl-12 ">About Us</div>
-        <div className="flex flex-col space-y-10 mx-8 p-4 rounded-md bg-[#232727] w-[60%]">
-          <h1 className="text-2xl font-bold text-[#08723e]">WE ARE A TEAM OF FUTSAL ENTHUSIASTS</h1>
+      <div className="flex flex-col items-center space-y-10 pt-8">
+        <div className="pl-12 text-7xl">About Us</div>
+        <div className="mx-8 flex w-[60%] flex-col space-y-10 rounded-md bg-[#232727] p-4">
+          <h1 className="text-2xl font-bold text-[#08723e]">
+            WE ARE A TEAM OF FUTSAL ENTHUSIASTS
+          </h1>
           <p className="">
             Welcome to MAIDAN, a revolutionary online platform that helps
             football enthusiasts organize matches and connect with players and

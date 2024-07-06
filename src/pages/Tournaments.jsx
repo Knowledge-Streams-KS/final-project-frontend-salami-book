@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Tournaments = () => {
-  return (
-    <div>Tournaments</div>
-  )
-}
+  return <div>Tournaments</div>;
+};
 
-export default Tournaments
+export default Tournaments;

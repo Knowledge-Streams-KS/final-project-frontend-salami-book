@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
-      <div className="bg-[#08723e] flex justify-between items-center px-[10%] py-4">
+      <div className="flex items-center justify-between bg-[#08723e] px-[10%] py-4">
         <div className="w-60">
           <NavLink to={"/"}>
             <img src={"/images/logoNav.svg"} alt="logo" />

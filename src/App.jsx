@@ -12,7 +12,7 @@ import AboutUs from "./pages/AboutUs";
 function App() {
   return (
     <>
-      <div className="bg-[#0e0f0f] text-white font-barlow-condensed ">
+      <div className="font-barlow-condensed bg-[#0e0f0f] text-white">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
