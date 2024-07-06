@@ -8,6 +8,7 @@ import Players from "./pages/Players";
 import Fields from "./pages/Fields";
 import Footer from "./pages/Footer";
 import AboutUs from "./pages/AboutUs";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="players" element={<Players />} />
           <Route path="fields" element={<Fields />} />
           <Route path="aboutus" element={<AboutUs />} />
+          <Route path="signup" element={<SignUp />} />
         </Routes>
         <Footer />
       </div>
