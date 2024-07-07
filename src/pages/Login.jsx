@@ -15,13 +15,11 @@ const Login = () => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await login(values.email, values.password);
-
+      await login(values.email, values.password);
       navigate("/");
-      setSubmitting(false);
     } catch (error) {
       console.error("Error logging in login page:", error);
-
+    } finally {
       setSubmitting(false);
     }
   };
