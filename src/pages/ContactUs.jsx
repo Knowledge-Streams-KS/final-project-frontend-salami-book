@@ -3,17 +3,17 @@ import React from "react";
 const ContactUs = () => {
   return (
     <>
-      <div className="bg-[#0e0f0f] text-[#08723e] flex flex-col py-24">
+      <div className="flex flex-col bg-[#0e0f0f] py-24 text-[#08723e]">
         <div className="flex justify-center pb-4">
-            <img className="w-60" src="images/maidan logo.png" alt="logo" />
+          <img className="w-60" src="images/maidan logo.png" alt="logo" />
         </div>
-        <div className="flex flex-row justify-around items-center">
+        <div className="flex flex-row items-center justify-around">
           <div>
             <div>
-              <h1 className="font-bold text-3xl mb-8 text-white">
+              <h1 className="mb-8 text-3xl font-bold text-white">
                 GET IN TOUCH WITH US
               </h1>
-              <p className="w-60 ml-2">
+              <p className="ml-2 w-60">
                 If you have any queries, concerns, or suggestions, please don’t
                 hesitate to reach out. Our dedicated customer support team is
                 here to assist you and will respond to your inquiries promptly.
@@ -21,8 +21,8 @@ const ContactUs = () => {
             </div>
           </div>
           <div>
-            <h1 className="font-bold text-3xl mb-8 text-white">Policy</h1>
-            <div className="space-y-2 ml-2 cursor-pointer">
+            <h1 className="mb-8 text-3xl font-bold text-white">Policy</h1>
+            <div className="ml-2 cursor-pointer space-y-2">
               <p>Privacy Policy</p>
               <p>Terms and Conditions</p>
               <p>FAQs</p>
@@ -31,19 +31,19 @@ const ContactUs = () => {
           </div>
           <div className="space-y-8">
             <div>
-              <div className="text-white font-bold text-xl">Facebook</div>
+              <div className="text-xl font-bold text-white">Facebook</div>
               <div>Maidan Official</div>
             </div>
             <div>
-              <div className="text-white font-bold text-xl">Instagram</div>
+              <div className="text-xl font-bold text-white">Instagram</div>
               <div>Maidan Official</div>
             </div>
             <div>
-              <div className="text-white font-bold text-xl">Email Us</div>
+              <div className="text-xl font-bold text-white">Email Us</div>
               <div>Maidan Official</div>
             </div>
             <div>
-              <div className="text-white font-bold text-xl">Phone Number</div>
+              <div className="text-xl font-bold text-white">Phone Number</div>
               <div>Maidan Official</div>
             </div>
           </div>
