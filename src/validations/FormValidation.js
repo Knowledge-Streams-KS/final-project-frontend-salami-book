@@ -41,7 +41,7 @@ const loginSchema = yup.object({
         .string()
         .required("Email is required")
         .email("Please enter a valid email")
-        .test("checkEmailExists", "Email does not exist", async function (value) {
+        .test("checkEmailExists", "Email does not exist. Please sign up!", async function (value) {
             try {
                 const response = await axiosInstance.get(`http://localhost:3000/users`);
                 const users = response.data.data;
