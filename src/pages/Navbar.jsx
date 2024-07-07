@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import ProfileDropdown from "./ProfileDropdown";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
   return (
     <>
       <div className="flex items-center justify-between bg-[#08723e] px-[10%] py-4">
@@ -17,6 +20,8 @@ const Navbar = () => {
           <NavLink to={"teams"}>TEAMS</NavLink>
           <NavLink to={"players"}>PLAYERS</NavLink>
           <NavLink to={"fields"}>FIELDS</NavLink>
+
+          {user ? <ProfileDropdown /> : <NavLink to={"/login"}>LOGIN</NavLink>}
         </div>
       </div>
     </>

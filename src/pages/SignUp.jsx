@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import signupSchema from "../validations/FormValidation.js";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const { signup } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
@@ -15,10 +16,12 @@ const SignUp = () => {
 
       if (response && response.status === 201) {
         console.log("Form submitted successfully:", name, email, password);
+        navigate("/login");
       } else if (response && response.status === 400) {
         setFieldError("email", "User with this email already exists");
       }
     } catch (error) {
+      navigate("/signup");
       console.error("Error signing up:", error);
     } finally {
       setSubmitting(false);
