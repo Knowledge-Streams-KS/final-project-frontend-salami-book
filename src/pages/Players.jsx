@@ -4,14 +4,21 @@ import PlayersTable from "../components/PlayersTable";
 
 const Players = () => {
   const [players, setPlayers] = useState([]);
+  const [teams, setTeams] = useState([])
 
   const getPlayers = async () => {
     const response = await axiosInstance.get("/players");
     setPlayers(response.data.players);
   };
 
+  const getTeams = async () => {
+    const response = await axiosInstance.get('/teams');
+    setTeams(response.data.teams)
+  }
+
   useEffect(() => {
     getPlayers();
+    getTeams();
   }, []);
 
   return (
@@ -20,7 +27,7 @@ const Players = () => {
         <div className="text-7xl">Players</div>
         <div className="rounded-md bg-[#232727]">
         </div>
-        <PlayersTable players={players} />
+        <PlayersTable players={players} teams={teams} />
       </div>
     </>
   );
