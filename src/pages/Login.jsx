@@ -1,27 +1,25 @@
 import React, { useContext } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { AuthContext } from "../context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginSchema } from "../validations/FormValidation.js";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const initialValues = {
     email: "",
     password: "",
   };
 
-  const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
+  const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await login(values.email, values.password);
-      if (!response) {
-        setFieldError("general", "Invalid email or password");
-      }
-      setSubmitting(false);
+      await login(values.email, values.password);
+      navigate("/");
     } catch (error) {
-      console.error("Error logging in:", error);
-      setFieldError("general", "Invalid email or password");
+      console.error("Error logging in login page:", error);
+    } finally {
       setSubmitting(false);
     }
   };

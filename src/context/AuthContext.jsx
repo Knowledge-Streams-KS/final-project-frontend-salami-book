@@ -19,8 +19,7 @@ export const AuthProvider = ({ children }) => {
 
       return response;
     } catch (error) {
-      console.error("Error signing up:", error);
-      toast.error("Error signing up");
+      console.error("Error logging in:", error);
     }
   };
 
@@ -52,8 +51,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const logout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+    toast.success("Successfully logged out!");
+  };
+
   return (
-    <AuthContext.Provider value={{ signup, login, user }}>
+    <AuthContext.Provider value={{ signup, login, logout, user }}>
       {children}
       <Toaster />
     </AuthContext.Provider>

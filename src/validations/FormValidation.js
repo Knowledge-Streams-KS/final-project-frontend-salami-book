@@ -41,20 +41,17 @@ const loginSchema = yup.object({
         .string()
         .required("Email is required")
         .email("Please enter a valid email")
-        .test("checkEmailExists", "Email does not exist", async function (value) {
-            try {
-                const response = await axiosInstance.get(`http://localhost:3000/users`);
-                const users = response.data.data;
+        .test("checkEmailExists", "Email does not exist. Please sign up!", async function (value) {
 
-                // Check if any user already has this email
-                const emailExists = users.some(user => user.email === value);
+            const response = await axiosInstance.get(`http://localhost:3000/users`);
+            const users = response.data.data;
 
-                // Return true if email exists, false if it doesn't
-                return emailExists;
-            } catch (error) {
-                console.error("Error checking email:", error);
-                return false;
-            }
+            // Check if any user already has this email
+            const emailExists = users.some(user => user.email === value);
+
+            // Return true if email exists, false if it doesn't
+            return emailExists;
+
         }),
     password: yup.string().required("Password is required"),
 });
