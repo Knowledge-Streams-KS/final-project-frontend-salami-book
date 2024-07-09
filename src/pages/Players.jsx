@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "../axios/axios";
-import PlayerCard from "../components/PlayerCard";
 import PlayersTable from "../components/PlayersTable";
 
 const Players = () => {
