@@ -13,7 +13,7 @@ const ContactUs = () => {
               <h1 className="mb-8 text-3xl font-bold text-white">
                 GET IN TOUCH WITH US
               </h1>
-              <p className="ml-2 w-60">
+              <p className="w-60">
                 If you have any queries, concerns, or suggestions, please don’t
                 hesitate to reach out. Our dedicated customer support team is
                 here to assist you and will respond to your inquiries promptly.
@@ -22,7 +22,7 @@ const ContactUs = () => {
           </div>
           <div>
             <h1 className="mb-8 text-3xl font-bold text-white">Policy</h1>
-            <div className="ml-2 cursor-pointer space-y-2">
+            <div className="cursor-pointer space-y-2">
               <p>Privacy Policy</p>
               <p>Terms and Conditions</p>
               <p>FAQs</p>
