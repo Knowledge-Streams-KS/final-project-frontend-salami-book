@@ -10,6 +10,7 @@ import Footer from "./pages/Footer";
 import AboutUs from "./pages/AboutUs";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import Matches from "./pages/Matches";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="players" element={<Players />} />
           <Route path="fields" element={<Fields />} />
           <Route path="aboutus" element={<AboutUs />} />
+          <Route path="matches" element={<Matches />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="login" element={<Login />} />
         </Routes>

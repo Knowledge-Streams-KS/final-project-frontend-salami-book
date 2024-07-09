@@ -10,13 +10,14 @@ const Navbar = () => {
             <img src={"/images/logoNav.svg"} alt="logo" />
           </NavLink>
         </div>
-        <div className="flex space-x-3">
-          <NavLink to={"/"}>HOME</NavLink>
-          <NavLink to={"tournaments"}>TOURNAMENTS</NavLink>
-          <NavLink to={"leagues"}>LEAGUES</NavLink>
-          <NavLink to={"teams"}>TEAMS</NavLink>
-          <NavLink to={"players"}>PLAYERS</NavLink>
-          <NavLink to={"fields"}>FIELDS</NavLink>
+        <div className="flex space-x-3 text-xl">
+          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={"/"}>HOME</NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={"tournaments"}>TOURNAMENTS</NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={"leagues"}>LEAGUES</NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={"teams"}>TEAMS</NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={"players"}>PLAYERS</NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={"fields"}>FIELDS</NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={'matches'}>MATCHES</NavLink>
         </div>
       </div>
     </>
