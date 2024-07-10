@@ -43,7 +43,7 @@ const PlayersTable = ({ players, teams }) => {
             {currentPlayers.map((player, index) => (
               <tr key={player.id} className="border-t border-gray-600">
                 <td className="border border-gray-600 px-4 py-2">
-                  {index + 1}
+                  {indexOfFirstTeam + index + 1}
                 </td>
                 <td className="border border-gray-600 px-4 py-2">
                   {player.name}
