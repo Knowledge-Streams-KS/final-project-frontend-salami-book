@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Matches from "./pages/Matches";
 import CreateMatch from "./pages/CreateMatch";
+import TicketBookingForm from "./components/TicketBookingForm";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="profile" element={<Profile />} />
           <Route path="creatematch" element={<CreateMatch />} />
+          <Route path="ticket" element={<TicketBookingForm />} />
         </Routes>
         <Footer />
       </div>
