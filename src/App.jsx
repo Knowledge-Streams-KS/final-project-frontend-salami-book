@@ -16,6 +16,7 @@ import CreateMatch from "./pages/CreateMatch";
 import AddField from "./pages/AddField";
 import AddPlayer from "./pages/AddPlayer";
 import AddTeam from "./pages/AddTeam";
+import TicketBookingForm from "./components/TicketBookingForm";
 
 function App() {
   return (
@@ -38,6 +39,8 @@ function App() {
           <Route path="addfield" element={<AddField />} />
           <Route path="addplayer" element={<AddPlayer />} />
           <Route path="addteam" element={<AddTeam />} />
+
+          <Route path="ticket" element={<TicketBookingForm />} />
         </Routes>
         <Footer />
       </div>
