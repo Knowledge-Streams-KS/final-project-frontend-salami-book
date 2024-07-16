@@ -13,6 +13,9 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Matches from "./pages/Matches";
 import CreateMatch from "./pages/CreateMatch";
+import AddField from "./pages/AddField";
+import AddPlayer from "./pages/AddPlayer";
+import AddTeam from "./pages/AddTeam";
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="profile" element={<Profile />} />
           <Route path="creatematch" element={<CreateMatch />} />
+          <Route path="addfield" element={<AddField />} />
+          <Route path="addplayer" element={<AddPlayer />} />
+          <Route path="addteam" element={<AddTeam />} />
         </Routes>
         <Footer />
       </div>
