@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import FieldCards from "../components/FieldCards";
 import axiosInstance from "../axios/axios";
+import { useNavigate } from "react-router";
 
 const Fields = () => {
   const [fields, setFeilds] = useState([]);
+  const navigate = useNavigate();
 
   const getFields = async () => {
     try {
@@ -17,6 +19,8 @@ const Fields = () => {
   useEffect(() => {
     getFields();
   }, []);
+
+  const admin = true;
 
   return (
     <>
@@ -35,6 +39,16 @@ const Fields = () => {
             );
           })}
         </div>
+        {admin && (
+          <div>
+            <button
+              onClick={() => navigate("/addfield")}
+              className="rounded-md bg-[#ecd706] px-4 py-2 text-black"
+            >
+              Add Field
+            </button>
+          </div>
+        )}
       </div>
     </>
   );

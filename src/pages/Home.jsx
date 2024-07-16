@@ -1,7 +1,11 @@
 import React from "react";
 import AboutUs from "./AboutUs";
+import { useNavigate } from "react-router";
 
 const Home = () => {
+
+  const navigate = useNavigate()
+
   return (
     <>
       <div
@@ -14,10 +18,10 @@ const Home = () => {
             FIND YOUR MATCH
           </div>
           <div className="flex space-x-12">
-            <button className="rounded-md bg-[#ecd706] px-4 py-2 text-2xl text-black">
-              Find Match
+            <button onClick={() => navigate('/creatematch')} className="rounded-md bg-[#ecd706] px-4 py-2 text-2xl text-black">
+              Create Match
             </button>
-            <button className="rounded-md bg-[#ecd706] px-4 py-2 text-2xl text-black">
+            <button onClick={() => navigate('/aboutus')} className="rounded-md bg-[#ecd706] px-4 py-2 text-2xl text-black">
               About Us
             </button>
           </div>

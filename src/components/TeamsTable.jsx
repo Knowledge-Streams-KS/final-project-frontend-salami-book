@@ -12,8 +12,6 @@ const TeamsTable = ({ teams }) => {
   const indexOfLastTeam = currentPage * teamsPerPage;
   const indexOfFirstTeam = indexOfLastTeam - teamsPerPage;
   const currentTeams = teams.slice(indexOfFirstTeam, indexOfLastTeam);
-  console.log(indexOfFirstTeam, "first")
-  console.log(indexOfLastTeam, "last")
 
   const nextPage = () => {
     if (currentPage < Math.ceil(teams.length / teamsPerPage)) {
