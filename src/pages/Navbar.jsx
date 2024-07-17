@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import ProfileDropdown from "./ProfileDropdown";
 import { AuthContext } from "../context/AuthContext";
+import { FaShoppingCart } from "react-icons/fa";
+import BuyTickets from "./BuyTickets";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
@@ -14,14 +16,64 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div className="flex space-x-3 text-xl">
-          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={"/"}>HOME</NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={"tournaments"}>TOURNAMENTS</NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={"leagues"}>LEAGUES</NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={"teams"}>TEAMS</NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={"players"}>PLAYERS</NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={"fields"}>FIELDS</NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'text-[#0e0f0f]' : ''} to={'matches'}>MATCHES</NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#0e0f0f]" : "")}
+            to={"/"}
+          >
+            HOME
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#0e0f0f]" : "")}
+            to={"tournaments"}
+          >
+            TOURNAMENTS
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#0e0f0f]" : "")}
+            to={"leagues"}
+          >
+            LEAGUES
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#0e0f0f]" : "")}
+            to={"teams"}
+          >
+            TEAMS
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#0e0f0f]" : "")}
+            to={"players"}
+          >
+            PLAYERS
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#0e0f0f]" : "")}
+            to={"fields"}
+          >
+            FIELDS
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#0e0f0f]" : "")}
+            to={"matches"}
+          >
+            MATCHES
+          </NavLink>
+
+          {user && (
+            <>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-[#0e0f0f]" : "")}
+                to={"/ticket"}
+              >
+                Buy Tickets
+              </NavLink>
+              <FaShoppingCart className="mt-1 text-2xl" />
+            </>
+          )}
+
           {user ? <ProfileDropdown /> : <NavLink to={"/login"}>LOGIN</NavLink>}
+
+          
         </div>
       </div>
     </>
