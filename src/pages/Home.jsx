@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
       <div
-        style={{ backgroundImage: "url('images/bg-image.jpg')" }}
+        style={{ backgroundImage: "url('images/wallpaper2.jpg')" }}
         className="h-screen w-full bg-cover bg-no-repeat"
       >
         <div className="flex h-screen w-full flex-col justify-center space-y-20 bg-black bg-opacity-70 pl-[20%]">

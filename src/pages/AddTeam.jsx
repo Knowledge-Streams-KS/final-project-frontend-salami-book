@@ -85,15 +85,6 @@ const AddTeam = () => {
                 </select>
                 {formik.errors.teamDivision && formik.touched.teamDivision && (<p className="text-red-600">{formik.errors.teamDivision}</p>)}
               </div>
-            <div className="space-x-3">
-                <label htmlFor="teamImage">Team Image:</label>
-                <input
-                  className="rounded-md bg-[#0e0f0f] px-4 py-2"
-                  id="teamImage"
-                  name="teamImage"
-                  type="file"
-                />
-              </div>
             </div>
             <div className="flex flex-row justify-center space-x-5">
               <button
