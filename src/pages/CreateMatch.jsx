@@ -7,7 +7,7 @@ import createMatchSchema from "../validations/MatchSchema";
 const CreateMatch = () => {
   const [fields, setFields] = useState([]);
   const [teams, setTeams] = useState([]);
-  const [bookings, setBookings] = useState([])
+  const [bookings, setBookings] = useState([]);
   const navigate = useNavigate();
 
   const bookingDate = [];
@@ -30,8 +30,6 @@ const CreateMatch = () => {
     dateObject[date] = bookingTimes;
     bookingDate.push(dateObject);
   }
-
-  console.log(bookingDate)
 
   const getFields = async () => {
     const response = await axiosInstance.get("/fields");
@@ -100,7 +98,9 @@ const CreateMatch = () => {
     onSubmit,
   });
 
-  const selectedDate = bookingDate.find((date) => date[formik.values.bookingDate]);
+  const selectedDate = bookingDate.find(
+    (date) => date[formik.values.bookingDate],
+  );
   const times = selectedDate ? selectedDate[formik.values.bookingDate] : [];
 
   return (
@@ -135,7 +135,9 @@ const CreateMatch = () => {
                   );
                 })}
               </select>
-              {formik.errors.field && formik.touched.field && (<p className="text-red-600">{formik.errors.field}</p>)}
+              {formik.errors.field && formik.touched.field && (
+                <p className="text-red-600">{formik.errors.field}</p>
+              )}
             </div>
 
             <div className="space-y-3">
@@ -160,7 +162,9 @@ const CreateMatch = () => {
                       </option>
                     );
                   })}
-                  {formik.errors.bookingDate && formik.touched.bookingDate && (<p className="text-red-600">{formik.errors.bookingDate}</p>)}
+                  {formik.errors.bookingDate && formik.touched.bookingDate && (
+                    <p className="text-red-600">{formik.errors.bookingDate}</p>
+                  )}
                 </select>
               </div>
               <div className="space-x-3">
@@ -177,14 +181,22 @@ const CreateMatch = () => {
                     Select Time
                   </option>
                   {times.map((time, index) => {
+                    const isBooked = bookings.some(
+                      (booking) =>
+                        parseInt(formik.values.field) === booking.FieldId &&
+                        formik.values.bookingDate === booking.date &&
+                        time === booking.time
+                    );
                     return (
-                      <option key={index} value={time}>
+                      <option key={index} value={time} disabled={isBooked}>
                         {time}
                       </option>
                     );
                   })}
                 </select>
-                {formik.errors.bookingTime && formik.touched.bookingTime && (<p className="text-red-600">{formik.errors.bookingTime}</p>)}
+                {formik.errors.bookingTime && formik.touched.bookingTime && (
+                  <p className="text-red-600">{formik.errors.bookingTime}</p>
+                )}
               </div>
             </div>
 
@@ -212,7 +224,9 @@ const CreateMatch = () => {
                     </option>
                   ))}
                 </select>
-                {formik.errors.team1 && formik.touched.team1 && (<p className="text-red-600">{formik.errors.team1}</p>)}
+                {formik.errors.team1 && formik.touched.team1 && (
+                  <p className="text-red-600">{formik.errors.team1}</p>
+                )}
               </div>
               <div className="space-x-3">
                 <label htmlFor="team2">Team 2:</label>
@@ -237,7 +251,9 @@ const CreateMatch = () => {
                     </option>
                   ))}
                 </select>
-                {formik.errors.team2 && formik.touched.team2 && (<p className="text-red-600">{formik.errors.team2}</p>)}
+                {formik.errors.team2 && formik.touched.team2 && (
+                  <p className="text-red-600">{formik.errors.team2}</p>
+                )}
               </div>
             </div>
 
