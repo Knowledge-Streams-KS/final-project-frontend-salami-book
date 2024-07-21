@@ -32,7 +32,6 @@ const Fields = () => {
               <FieldCards
                 key={field.id}
                 name={field.name}
-                img={field.img}
                 description={field.description}
                 location={{ lat: field.latitude, lng: field.longitude }}
               />

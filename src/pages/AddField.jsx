@@ -71,15 +71,6 @@ const AddField = () => {
                 />
                 {formik.errors.fieldName && formik.touched.fieldName && (<p className="text-red-600">{formik.errors.fieldName}</p>)}
               </div>
-              <div className="space-x-3">
-                <label htmlFor="fieldImage">Field Image:</label>
-                <input
-                  className="rounded-md bg-[#0e0f0f] px-4 py-2"
-                  id="fieldImage"
-                  name="fieldImage"
-                  type="file"
-                />
-              </div>
             </div>
 
             <div className="flex space-x-6">
