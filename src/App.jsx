@@ -18,6 +18,7 @@ import AddPlayer from "./pages/AddPlayer";
 import AddTeam from "./pages/AddTeam";
 import TicketsTable from "./components/TicketsTable";
 import BuyTickets from "./pages/BuyTickets";
+import CheckoutPage from "./pages/CheckoutPage";
 function App() {
   return (
     <>
@@ -34,6 +35,7 @@ function App() {
           <Route path="matches" element={<Matches />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="login" element={<Login />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="profile" element={<Profile />} />
           <Route path="creatematch" element={<CreateMatch />} />
           <Route path="addfield" element={<AddField />} />

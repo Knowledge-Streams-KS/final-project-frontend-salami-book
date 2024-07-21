@@ -3,12 +3,11 @@ import axiosInstance from "../axios/axios";
 import MatchListComponent from "../components/MatchListComponent";
 import TicketListComponent from "../components/TicketListComponent";
 import TicketDetails from "../components/TicketDetails";
-
 const BuyTickets = () => {
   const [matches, setMatches] = useState([]);
-  const [selectedMatchId, setSelectedMatchId] = useState(""); // Initialize with an empty string
+  const [selectedMatchId, setSelectedMatchId] = useState("");
   const [matchTickets, setMatchTickets] = useState([]);
-  const [selectedTicket, setSelectedTicket] = useState(null);
+  const [selectedTicket, setSelectedTicket] = useState("");
 
   useEffect(() => {
     fetchMatches();
@@ -25,7 +24,6 @@ const BuyTickets = () => {
   const fetchMatches = async () => {
     try {
       const response = await axiosInstance.get("/matches");
-
       setMatches(response.data.matches);
     } catch (error) {
       console.error("Error fetching matches:", error);
@@ -39,9 +37,13 @@ const BuyTickets = () => {
       setMatchTickets(response.data.matchTickets);
 
       // const data =
-      console.log(ticketData);
+      console.log(response.data.matchTickets);
 
-      setSelectedTicket(null); // Reset selected ticket when fetching new tickets
+      response.data.matchTickets.forEach((ticketObj) => {
+        console.log(ticketObj.Ticket);
+      });
+
+      // setSelectedTicket(null); // Reset selected ticket when fetching new tickets
     } catch (error) {
       console.error("Error fetching match tickets:", error);
     }
@@ -53,22 +55,11 @@ const BuyTickets = () => {
 
   const handleTicketSelect = (ticketId) => {
     setSelectedTicket(ticketId);
-    console.log("TicketId", ticketId);
-    console.log("on handle ticket", selectedTicket);
   };
-
-  console.log("Selected match id is ", selectedMatchId);
-  console.log("Selected match Ticket is ", matchTickets);
-  console.log(
-    "SelectedTicket is ",
-    selectedTicket,
-    "of match ",
-    selectedMatchId,
-  );
 
   return (
     <div className="flex w-full items-center justify-center">
-      <div className="w-80">
+      <div className="w-96">
         <h2 className="mb-4 mt-5 text-center text-4xl text-[#08723e]">
           Upcoming Matches
         </h2>
@@ -77,14 +68,15 @@ const BuyTickets = () => {
           onSelectMatch={handleMatchSelect}
           selectedMatchId={selectedMatchId}
         />
-
-        {/* Display match tickets dropdown based on selectedMatchId */}
-
-        <TicketListComponent
-          matchTickets={matchTickets}
-          onSelectTicket={handleTicketSelect}
-        />
-        {selectedTicket && <TicketDetails ticket={selectedTicket} />}
+        {selectedMatchId && (
+          <TicketListComponent
+            matchTickets={matchTickets}
+            onSelectTicket={handleTicketSelect}
+          />
+        )}
+        {selectedTicket && ( // Render TicketDetails if selectedTicket is truthy
+          <TicketDetails ticket={selectedTicket} match={selectedMatchId} />
+        )}
       </div>
     </div>
   );
