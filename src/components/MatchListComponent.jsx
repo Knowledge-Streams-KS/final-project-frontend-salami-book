@@ -3,10 +3,17 @@ import axiosInstance from "../axios/axios";
 
 const MatchListComponent = ({ onSelectMatch }) => {
   const [matches, setMatches] = useState([]);
+  const [teams, setTeams] = useState([])
   const [selectedMatchId, setSelectedMatchId] = useState("");
+
+  const getTeams = async () => {
+    const response = await axiosInstance.get('/teams');
+    setTeams(response.data.teams)
+  }
 
   useEffect(() => {
     fetchMatches();
+    getTeams();
   }, []);
 
   const fetchMatches = async () => {
@@ -33,7 +40,7 @@ const MatchListComponent = ({ onSelectMatch }) => {
       <option value="">Select a match</option>
       {matches.map((match) => (
         <option key={match.id} value={match.id}>
-          {`${match.team1} vs ${match.team2}`}
+          {`${teams.find(team => team.id === match.team1)?.name} vs ${teams.find(team => team.id === match.team2)?.name}`}
         </option>
       ))}
     </select>

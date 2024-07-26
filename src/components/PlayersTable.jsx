@@ -21,9 +21,6 @@ const PlayersTable = ({ players, teams }) => {
       setCurrentPage(currentPage - 1);
     }
   };
-  const handleClick = () => {
-    navigate("/player");
-  };
 
   return (
     <>
@@ -92,12 +89,6 @@ const PlayersTable = ({ players, teams }) => {
             className="rounded bg-[#08723e] px-4 py-2 text-white disabled:opacity-50"
           >
             Next
-          </button>
-          <button
-            className="rounded bg-[#08723e] px-4 py-2 text-white disabled:opacity-50"
-            onClick={handleClick}
-          >
-            Add Player
           </button>
         </div>
       )}
