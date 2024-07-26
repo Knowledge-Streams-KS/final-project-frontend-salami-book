@@ -80,15 +80,6 @@ const AddPlayer = () => {
                 />
                  {formik.errors.playerName && formik.touched.playerName && (<p className="text-red-600">{formik.errors.playerName}</p>)}
               </div>
-              <div className="space-x-3">
-                <label htmlFor="playerImage">Player Image:</label>
-                <input
-                  className="rounded-md bg-[#0e0f0f] px-4 py-2"
-                  id="playerImage"
-                  name="playerImage"
-                  type="file"
-                />
-              </div>
             </div>
             <div className="flex space-x-8">
               <div className="space-x-3">

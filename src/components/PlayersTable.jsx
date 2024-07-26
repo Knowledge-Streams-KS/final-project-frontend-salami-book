@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PlayersTable = ({ players, teams }) => {
+  const navigate = useNavigate();
   const playersPerPage = 15;
   const [currentPage, setCurrentPage] = useState(1);
 
