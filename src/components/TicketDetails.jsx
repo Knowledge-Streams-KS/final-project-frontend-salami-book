@@ -19,6 +19,7 @@ const TicketDetails = ({ ticket, match }) => {
   const [quantity, setQuantity] = useState(1);
   const [team1, setTeam1] = useState("");
   const [team2, setTeam2] = useState("");
+  const [teams, setTeams] = useState([]);
 
   const handleAddToCart = () => {
     if (!user) {
@@ -73,9 +74,16 @@ const TicketDetails = ({ ticket, match }) => {
     }
   };
 
+  const getTeams = async () => {
+    const response = await axiosInstance.get('/teams')
+    setTeams(response.data.teams)
+    console.log(response.data.teams)
+  }
+
   useEffect(() => {
     getTickets();
     getteam1();
+    getTeams()
   }, [match]);
 
   const handleIncrement = (ticketId, matchId) => {
@@ -98,7 +106,7 @@ const TicketDetails = ({ ticket, match }) => {
           <div key={index}>
             <p>Ticket: {c.name}</p>
             <p>
-              Match: {c.team1} vs {c.team2}
+              Match: {teams.find(team => team.id === parseInt(c.team1))?.name} vs {teams.find(team => team.id === parseInt(c.team2))?.name}
             </p>
             <p>Price: ${c.price}</p>
             <div className="mb-2 flex items-center">

@@ -14,6 +14,7 @@ const TicketsTable = () => {
     }
   };
 
+
   useEffect(() => {
     getTickets();
   }, []);

@@ -40,7 +40,7 @@ const MatchListComponent = ({ onSelectMatch }) => {
       <option value="">Select a match</option>
       {matches.map((match) => (
         <option key={match.id} value={match.id}>
-          {`${teams.find(team => team.id === match.team1)?.name} vs ${teams.find(team => team.id === match.team2)?.name}`}
+          {`${teams.find(team => team.id === parseInt(match.team1))?.name} vs ${teams.find(team => team.id === parseInt(match.team2))?.name}`}
         </option>
       ))}
     </select>

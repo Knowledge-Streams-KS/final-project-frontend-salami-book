@@ -22,7 +22,7 @@ const Navbar = () => {
           >
             HOME
           </NavLink>
-          <NavLink
+          {/* <NavLink
             className={({ isActive }) => (isActive ? "text-[#0e0f0f]" : "")}
             to={"tournaments"}
           >
@@ -33,7 +33,7 @@ const Navbar = () => {
             to={"leagues"}
           >
             LEAGUES
-          </NavLink>
+          </NavLink> */}
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#0e0f0f]" : "")}
             to={"teams"}

@@ -15,7 +15,7 @@ const TicketListComponent = ({ matchTickets, onSelectTicket }) => {
       >
         <option value="">Select a ticket</option>
         {matchTickets.map((ticket) => (
-          <option key={ticket.Ticket.id} value={parseInt(ticket.TicketId)}>
+          <option key={ticket.TicketId} value={parseInt(ticket.TicketId)}>
             {ticket.Ticket.name} - Price: ${ticket.Ticket.price}
           </option>
         ))}

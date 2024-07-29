@@ -30,19 +30,19 @@ const Login = () => {
       validationSchema={loginSchema}
       onSubmit={handleSubmit}
     >
-      <div className="flex min-h-screen items-center justify-center bg-gray-100">
-        <div className="w-full max-w-md rounded bg-white p-6 shadow-md">
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="w-full max-w-md rounded bg-[#232727] p-6 shadow-md">
           <h2 className="mb-6 text-center text-3xl font-semibold text-green-800">
             Log In
           </h2>
 
           <Form>
             <div className="mb-4">
-              <label className="block text-gray-700">Email Address</label>
+              <label className="block">Email Address</label>
               <Field
                 type="email"
                 name="email"
-                className="w-full rounded-md border px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full rounded-md px-4 py-2  bg-[#0e0f0f] focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
               <ErrorMessage
@@ -52,11 +52,11 @@ const Login = () => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700">Password</label>
+              <label className="block">Password</label>
               <Field
                 type="password"
                 name="password"
-                className="w-full rounded-md border px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full rounded-md px-4 py-2  bg-[#0e0f0f] focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
               <ErrorMessage

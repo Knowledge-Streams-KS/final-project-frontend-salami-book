@@ -58,7 +58,7 @@ const BuyTickets = () => {
   };
 
   return (
-    <div className="flex w-full items-center justify-center">
+    <div className="flex w-full items-center justify-center min-h-[300px]">
       <div className="w-96">
         <h2 className="mb-4 mt-5 text-center text-4xl text-[#08723e]">
           Upcoming Matches
